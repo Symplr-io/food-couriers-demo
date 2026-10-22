@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Food Couriers",
+    "slug": "foodcouriersfooddeliveryappuiuxdesigncasestudycommunity",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "scheme": "foodcouriersfooddeliveryappuiuxdesigncasestudycommunity",
+    "splash": {
+      "backgroundColor": "#fefeff",
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Your location is used to centre the map and to confirm the place you pick."
+      }
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "./plugins/with-worklets-pairing.js"
+    ]
+  }
+}

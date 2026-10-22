@@ -1,0 +1,21 @@
+node_modules/
+.expo/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+!.env.secrets.example
+!.env.dev
+ios/Pods/
+android/.gradle/
+
+# COMMIT package-lock.json. It is what makes two checkouts of the same
+# commit install the same dependency tree — the ranges in package.json do
+# not, and .npmrc's save-exact only governs packages you add later.
+# (No yarn.lock: one package manager, one lockfile.)
+yarn.lock
+pnpm-lock.yaml
+# the demo ships its .env: it holds only the demo Supabase's public URL and anon key, and the archive device-service runs has to carry it
+!.env

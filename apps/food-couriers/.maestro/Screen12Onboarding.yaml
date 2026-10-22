@@ -1,0 +1,12 @@
+# Navigate to Screen12Onboarding (1 hop)
+appId: ${MAESTRO_APP_ID}
+---
+- launchApp
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen126FinishOrder2"
+    timeout: 10000
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen12Onboarding"
+    timeout: 10000

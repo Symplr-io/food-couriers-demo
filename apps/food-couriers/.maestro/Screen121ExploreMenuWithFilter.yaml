@@ -1,0 +1,9 @@
+# Visit Screen121ExploreMenuWithFilter
+appId: ${MAESTRO_APP_ID}
+---
+# UNREACHABLE from the start screen by navigation this app actually has.
+# Either the design draws no path here, or the path it draws is one the
+# generator does not wire (a state-variant demo link, a timed hop into a
+# failure screen, a press behind form validation). Add navigation in the
+# designer, or drive this screen from a flow of your own.
+- launchApp

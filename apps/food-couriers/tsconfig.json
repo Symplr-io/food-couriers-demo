@@ -1,0 +1,14 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "baseUrl": ".",
+    "paths": {
+      "react-native/types_generated/*": [
+        "./node_modules/react-native/types_generated/*"
+      ]
+    }
+  }
+}
