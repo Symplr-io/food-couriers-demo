@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Couriers demo</title>
+<meta name="description" content="Try Food Couriers, an app Symplr generated from a Figma design, on your Android phone.">
+<style>
+  :root { --bg: #fff; --fg: #1c1c1e; --muted: #6b6b73; --card: #f6f6f8; --accent: #e3173e; --on-accent: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111113; --fg: #f2f2f4; --muted: #a0a0aa; --card: #1d1d21; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 440px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+  .pitch { color: var(--muted); margin: 0 0 24px; }
+  .shot { display: block; width: 60%; max-width: 240px; margin: 0 auto 28px; border-radius: 22px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+  ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  li { background: var(--card); border-radius: 14px; padding: 16px; }
+  li h2 { font-size: 17px; margin: 0 0 8px; }
+  a { color: var(--accent); }
+  .button { display: block; text-align: center; background: var(--accent); color: var(--on-accent); text-decoration: none; font-weight: 600; padding: 14px; border-radius: 12px; margin: 4px 0 10px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 15px; word-break: break-all; }
+  .account { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0 0 8px; }
+  .account dt { color: var(--muted); }
+  .account dd { margin: 0; }
+  .small { color: var(--muted); font-size: 14px; margin: 0; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Food Couriers</h1>
+  <p class="pitch">A food-delivery app that <a href="https://symplr.io">Symplr</a> generated from a Figma design. It runs natively on your phone against a live backend.</p>
+  <img class="shot" src="screenshot.png" alt="The Food Couriers home screen, with burgers and a pizza menu" width="540" height="1205">
+  <ol>
+    <li>
+      <h2>1. Install Expo Go</h2>
+      <a class="button" href="https://play.google.com/store/apps/details?id=host.exp.exponent">Get Expo Go on Google Play</a>
+    </li>
+    <li>
+      <h2>2. Open the demo</h2>
+      <a class="button" href="exp://demo-food-couriers.symplr.io">Open in Expo Go</a>
+      <p class="small">or in Expo Go → Enter URL manually: <code>exp://demo-food-couriers.symplr.io</code></p>
+    </li>
+    <li>
+      <h2>3. Sign in with</h2>
+      <dl class="account">
+        <dt>Email</dt><dd><code>demo@symplr.io</code></dd>
+        <dt>Password</dt><dd><code>Demo-oGOPNuE_gFVt</code></dd>
+      </dl>
+      <p class="small">The demo resets every 30 minutes.</p>
+    </li>
+  </ol>
+  <footer>
+    <p>Android only for now. Expo Go on iPhone cannot open it.</p>
+    <p>UI based on “Food Couriers - Food Delivery App - UI/UX Design Case Study” by El Kamcy Speaks, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via <a href="https://www.figma.com/community/file/1205134361239673955">Figma Community</a>. Source: <a href="https://github.com/Symplr-io/food-couriers-demo">github.com/Symplr-io/food-couriers-demo</a>.</p>
+  </footer>
+</main>
+</body>
+</html>

@@ -4,6 +4,20 @@ Food Couriers is a food-delivery app that [Symplr](https://symplr.io) generated
 from a Figma design. The source is in [`apps/food-couriers`](apps/food-couriers):
 an Expo (SDK 58) React Native app.
 
+## Try it on your Android phone
+
+![Scan with your Android phone](docs/qr.svg)
+
+Scan the code, or open <https://symplr-io.github.io/food-couriers-demo/> on
+the phone:
+
+1. Install [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent).
+2. Open the demo: `exp://demo-food-couriers.symplr.io`.
+3. Sign in as `demo@symplr.io` with the password `Demo-oGOPNuE_gFVt`. The demo
+   resets every 30 minutes.
+
+Android only for now: Expo Go on iPhone cannot open it.
+
 ## Credits
 
 The UI is based on
