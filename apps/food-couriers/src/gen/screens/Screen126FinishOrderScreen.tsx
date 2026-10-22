@@ -197,6 +197,12 @@ export function Screen126FinishOrderScreen() {
           testID="w:1:1912"
           className="absolute start-[0vw] top-[0vw] w-[62.1333vw] h-[15.2vw] rounded-[1.8667vw]"
         >
+          {/* demo patch: Submit goes Home, as Skip does; the rating is not stored */}
+          <PressableBox
+            accessible={false}
+            onPress={() => navigation.navigate('IPhone13Mini1')}
+            style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, zIndex: 50 }}
+          />
           <LinearGradient
             testID="w:1:1913"
             className="absolute start-[0vw] top-[0vw] w-[62.1333vw] h-[15.2vw] rounded-[1.8667vw]"
