@@ -272,22 +272,6 @@ describe('checkCapability', () => {
   });
 });
 
-describe('biometryKind', () => {
-  afterEach(() => {
-    delete (globalThis as Record<string, unknown>).__authType;
-  });
-  it('reads FaceID as face', async () => {
-    (globalThis as Record<string, unknown>).__authType = 2;
-    await expect(biometryKind()).resolves.toBe('face');
-  });
-  it('reads TouchID as fingerprint', async () => {
-    // the case a fingerprint-only phone hits — it used to read "Turn on Face
-    // ID" on every unenrolled device
-    (globalThis as Record<string, unknown>).__authType = 1;
-    await expect(biometryKind()).resolves.toBe('fingerprint');
-  });
-});
-
 describe('resolveFlow', () => {
   const chain = (label: string, check?: string) => ({
     start: 's1',
@@ -464,67 +448,17 @@ describe('flow conditions that read a response body', () => {
   });
 });
 
-describe('the device capability probes', () => {
-  const g = globalThis as unknown as Record<string, unknown>;
-  afterEach(() => { delete g.__bioSensor; delete g.__bioPrompt; delete g.__authType; });
-
-  it('answers the NFC keys from the radio, and no for a test environment', async () => {
-    await expect(checkCapability('nfc-supported')).resolves.toBe('no');
-    await expect(checkCapability('nfc-enabled')).resolves.toBe('no');
-  });
-  it('says UNKNOWN for a key this build does not implement', async () => {
-    await expect(checkCapability('quantum-tunnelling')).resolves.toBe('unknown');
-  });
-  it('answers the biometric keys from the sensor', async () => {
-    await expect(checkCapability('biometrics')).resolves.toBe('yes');
-    await expect(checkCapability('biometric-auth')).resolves.toBe('yes');
-  });
-  it('answers NO when there is no sensor, rather than unknown', async () => {
-    g.__bioSensor = { available: false };
-    await expect(checkCapability('biometrics')).resolves.toBe('no');
-    await expect(checkCapability('biometric-auth-face')).resolves.toBe('no');
-    await expect(checkCapability('biometric-auth-fingerprint')).resolves.toBe('no');
-  });
-  it('refuses a FACE question on a fingerprint-only sensor, and the reverse', async () => {
-    g.__bioSensor = { available: true, biometryType: 'TouchID' };
-    await expect(checkCapability('biometric-auth-face')).resolves.toBe('no');
-    g.__bioSensor = { available: true, biometryType: 'FaceID' };
-    await expect(checkCapability('biometric-auth-fingerprint')).resolves.toBe('no');
-  });
-  it('answers NO, not unknown, when the prompt itself throws', async () => {
-    g.__bioPrompt = 'throw';
-    await expect(checkCapability('biometric-auth')).resolves.toBe('no');
-    await expect(checkCapability('biometric-auth-face')).resolves.toBe('no');
-  });
-  it('answers NO when the user dismisses the prompt', async () => {
-    g.__bioPrompt = false;
-    await expect(checkCapability('biometric-auth')).resolves.toBe('no');
-  });
-  it('says UNKNOWN when the platform API throws — it learned nothing', async () => {
-    g.__bioSensor = 'throw';
-    await expect(checkCapability('biometrics')).resolves.toBe('unknown');
-  });
-  it('answers a permission key from the platform check', async () => {
-    await expect(checkCapability('perm-camera')).resolves.toBe('no');
-    await expect(checkCapability('perm-microphone')).resolves.toBe('unknown');
-  });
-
-  it('names the modality iOS reports', async () => {
-    g.__bioSensor = { available: true, biometryType: 'FaceID' };
-    await expect(biometryKind()).resolves.toBe('face');
-    g.__bioSensor = { available: true, biometryType: 'TouchID' };
-    await expect(biometryKind()).resolves.toBe('fingerprint');
-    g.__bioSensor = { available: true, biometryType: 'Biometrics' };
-    await expect(biometryKind()).resolves.toBe('fingerprint');
-  });
-  it('returns NULL rather than guessing when the platform names nothing', async () => {
-    g.__bioSensor = { available: false };
-    await expect(biometryKind()).resolves.toBeNull();
-    g.__bioSensor = { available: false, error: 'BIOMETRIC_ERROR_NO_HARDWARE' };
-    await expect(biometryKind()).resolves.toBeNull();
-  });
-  it('returns NULL when the sensor call throws', async () => {
-    g.__bioSensor = 'throw';
+// No screen in this app reads a device capability, so the generator emitted
+// device.ts without its probes. Nothing may read as a yes: every key is
+// 'unknown' and no biometric sensor is named.
+describe('the device capability probes (none in this app)', () => {
+  it.each(['nfc-supported', 'biometrics', 'biometric-auth-face', 'biometric-auth-fingerprint', 'perm-camera'])(
+    "answers 'unknown' for %s, never a yes",
+    async (key) => {
+      await expect(checkCapability(key)).resolves.toBe('unknown');
+    },
+  );
+  it('names no biometric sensor', async () => {
     await expect(biometryKind()).resolves.toBeNull();
   });
 });

@@ -25,8 +25,11 @@ const MODULES: Array<[string, Record<string, unknown>]> = [
   ['SupabaseData', SupabaseData as never],
 ];
 
+// signInWithOAuth starts in the system browser, which a test has none of; the
+// request it ends with is exchangeOAuthCode, counted on its own.
+const BROWSER_FLOWS = new Set(['signInWithOAuth']);
 const opsOf = (mod: Record<string, unknown>) =>
-  Object.keys(mod).filter((k) => typeof mod[k] === 'function' && !k.startsWith('use'));
+  Object.keys(mod).filter((k) => typeof mod[k] === 'function' && !k.startsWith('use') && !BROWSER_FLOWS.has(k));
 const hooksOf = (mod: Record<string, unknown>) =>
   Object.keys(mod).filter((k) => typeof mod[k] === 'function' && k.startsWith('use'));
 

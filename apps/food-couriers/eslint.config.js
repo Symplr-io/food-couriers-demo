@@ -2,9 +2,11 @@
 // Generated code under src/gen/** is machine-written and regenerated on every
 // build: linting it produces findings nobody can act on, because the fix
 // belongs in the generator. Your code in src/custom/** is linted normally.
-const rn = require('@react-native/eslint-config');
+const rn = require('@react-native/eslint-config/flat');
 
 module.exports = [
   { ignores: ['node_modules/**', 'android/**', 'ios/**', 'src/gen/**', '.symplrv3/**'] },
   ...(Array.isArray(rn) ? rn : [rn]),
+  // the config's jest globals cover test files; the setup file mocks with them too
+  { files: ['jest.setup.js'], languageOptions: { globals: { jest: 'readonly' } } },
 ];

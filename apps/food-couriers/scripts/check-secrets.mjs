@@ -46,7 +46,7 @@ const ALLOW = [
  * than none: it is believed. Walking the filesystem also drops the dependency
  * on PATH resolving to a trustworthy git (Sonar S4036).
  */
-const { readFileSync, readdirSync, statSync } = await import('node:fs');
+const { readFileSync, readdirSync } = await import('node:fs');
 const { join } = await import('node:path');
 const SKIP_DIRS = new Set([
   'node_modules', '.git', 'ios', 'android', 'build', 'dist', 'coverage',

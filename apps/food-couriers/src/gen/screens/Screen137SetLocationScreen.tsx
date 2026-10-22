@@ -47,8 +47,8 @@ export function Screen137SetLocationScreen() {
           <MapView
             testID="w:1:5964"
             provider="google"
-            latitude={getPath(q1.data, '[0].latitude')}
-            longitude={getPath(q1.data, '[0].longitude')}
+            latitude={getPath(q1.data, '[0].latitude') as number | null}
+            longitude={getPath(q1.data, '[0].longitude') as number | null}
             showsUserLocation
             followsUserLocation
             centerOffset={{ x: -0.02, y: -0.0906 }}

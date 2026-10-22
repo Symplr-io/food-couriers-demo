@@ -78,7 +78,7 @@ export function ScreenStatusBar({
   // emits it only where the design's top band is plain background)
   return (
     <>
-      <StatusBar barStyle={barStyle} translucent backgroundColor="transparent" />
+      <StatusBar barStyle={barStyle} />
       {plate ? (
         <View
           pointerEvents="none"
