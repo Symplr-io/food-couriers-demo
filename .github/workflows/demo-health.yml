@@ -16,8 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      # dev serves the demo first; switch to demo-food-couriers.symplr.io once prod does
-      DEMO_HOST: demo-food-couriers.101studio.co
+      DEMO_HOST: demo-food-couriers.symplr.io
       SUPABASE_URL: https://wjvpjyvyavyapvrrmvjq.supabase.co
       SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqdnBqeXZ5YXZ5YXB2cnJtdmpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2Mzc3ODMsImV4cCI6MjEwODIxMzc4M30.AMsthWzDahaByNPmOMYLB8SJtn0o649cCkRtrFr3yLs
       DEMO_EMAIL: demo@symplr.io
