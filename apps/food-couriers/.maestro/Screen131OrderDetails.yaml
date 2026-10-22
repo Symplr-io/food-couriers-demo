@@ -1,0 +1,36 @@
+# Navigate to Screen131OrderDetails (5 hops)
+appId: ${MAESTRO_APP_ID}
+---
+- launchApp
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen126FinishOrder2"
+    timeout: 10000
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen12Onboarding"
+    timeout: 10000
+- tapOn:
+    id: "w:1:4611"
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen13Onboarding"
+    timeout: 10000
+- tapOn:
+    id: "w:1:3511"
+- extendedWaitUntil:
+    visible:
+      id: "screen:IPhone13Mini1"
+    timeout: 10000
+- tapOn:
+    id: "w:1:520"
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen141DetailMenu"
+    timeout: 10000
+- tapOn:
+    id: "w:1:652"
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen131OrderDetails"
+    timeout: 10000

@@ -1,0 +1,8 @@
+# E2E smoke flow (Maestro). Run: MAESTRO_APP_ID=<bundle id> maestro test .maestro/smoke.yaml
+appId: ${MAESTRO_APP_ID}
+---
+- launchApp
+- extendedWaitUntil:
+    visible:
+      id: "screen:Screen126FinishOrder2"
+    timeout: 10000

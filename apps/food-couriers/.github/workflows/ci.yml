@@ -1,0 +1,46 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # .nvmrc is generated from the app's rnVersion — one source of truth
+          # for "which node builds this", instead of a number pasted here.
+          node-version-file: '.nvmrc'
+          cache: npm
+      # npm install, not npm ci: a freshly generated app has no lockfile yet, and
+      # 'npm ci' refuses outright without one. Once the lockfile is committed
+      # (see README) this still honours it exactly.
+      - run: npm install --no-audit --no-fund
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests (with coverage)
+        # test:coverage, not test: it runs the same suites AND writes
+        # coverage/lcov.info, which sonar-project.properties already points at.
+        # Nothing else produces that file, and SonarQube reports a missing report
+        # as 0% COVERED rather than "unknown" — so a scan of a repo whose tests
+        # all pass still failed a coverage gate. Costs one extra pass over the
+        # same tests.
+        #
+        # Flags before the script name: after it, npm forwards them to the script
+        # instead of acting on them. Both scripts are only present when the
+        # unitTests feature is on, hence --if-present rather than a hard failure.
+        run: npm run --if-present test:coverage
+
+      - name: Secret scan
+        run: npm run check:secrets
+
+      - name: Dependency audit
+        # Advisory: a new advisory against a transitive dep should not block a
+        # hotfix at 2am. Read it, do not gate on it.
+        continue-on-error: true
+        run: npm run audit

@@ -1,0 +1,26 @@
+name: e2e
+on:
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: 'App bundle id (MAESTRO_APP_ID)'
+        required: true
+jobs:
+  maestro:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install
+      - name: Install Maestro
+        run: curl -Ls https://get.maestro.mobile.dev | bash
+      - name: Run E2E
+        env:
+          MAESTRO_APP_ID: ${{ inputs.app_id }}
+        run: |
+          export PATH="$PATH":"$HOME/.maestro/bin"
+          maestro test .maestro/ --format junit --output report.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: e2e-report, path: report.xml }

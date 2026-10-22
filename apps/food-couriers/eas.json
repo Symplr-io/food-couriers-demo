@@ -1,0 +1,16 @@
+{
+  "build": {
+    "dev": {
+      "developmentClient": false,
+      "distribution": "internal",
+      "channel": "dev",
+      "env": {
+        "APP_VARIANT": "dev",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqdnBqeXZ5YXZ5YXB2cnJtdmpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2Mzc3ODMsImV4cCI6MjEwODIxMzc4M30.AMsthWzDahaByNPmOMYLB8SJtn0o649cCkRtrFr3yLs",
+        "EXPO_PUBLIC_SUPABASE_DB_SCHEMA": "symplr_fc6b8a25_5e49_4a7a_a920_acfdf58fb896",
+        "EXPO_PUBLIC_SUPABASE_PREFER": "resolution=merge-duplicates",
+        "EXPO_PUBLIC_SUPABASE_URL": "https://wjvpjyvyavyapvrrmvjq.supabase.co"
+      }
+    }
+  }
+}
