@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: Readonly<{ children: React.ReactNode
   const [modeState, setModeState] = useState<Mode>('system');
   const mode = modeState;
   useEffect(() => {
-    AsyncStorage.getItem(KEY).then((m) => m && setModeState(m as Mode));
+    fireAndForget(AsyncStorage.getItem(KEY).then((m) => m && setModeState(m as Mode)), 'theme restore');
   }, []);
   const setMode = (m: Mode) => {
     setModeState(m);

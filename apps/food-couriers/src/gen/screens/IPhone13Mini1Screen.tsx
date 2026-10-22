@@ -44,9 +44,9 @@ export function IPhone13Mini1Screen() {
       navigation as unknown as { addListener?: (t: string, cb: () => void) => () => void }
     ).addListener?.('focus', () => {
       if (focusedOnce.current) {
-        q0.refetch();
-        q1.refetch();
-        qCart.refetch();
+        void q0.refetch();
+        void q1.refetch();
+        void qCart.refetch();
       }
       focusedOnce.current = true;
     });

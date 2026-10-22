@@ -105,7 +105,9 @@ The app is Symplr's output with these commits on top:
   - React Native 0.88 types: three type errors;
   - the ESLint setup, which was missing its dependencies and used the wrong
     config path;
-  - two test suites that tested modules this app does not include.
+  - two test suites that tested modules this app does not include;
+- six promises that SonarQube Cloud found unhandled: the screens' refetch on
+  focus, and restoring the saved theme.
 
 ## Repository layout
 

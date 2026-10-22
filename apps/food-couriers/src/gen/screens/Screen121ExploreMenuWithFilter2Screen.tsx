@@ -30,7 +30,7 @@ export function Screen121ExploreMenuWithFilter2Screen() {
       navigation as unknown as { addListener?: (t: string, cb: () => void) => () => void }
     ).addListener?.('focus', () => {
       if (focusedOnce.current) {
-        q0.refetch();
+        void q0.refetch();
       }
       focusedOnce.current = true;
     });
