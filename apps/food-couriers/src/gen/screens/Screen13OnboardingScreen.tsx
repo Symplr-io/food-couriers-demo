@@ -294,11 +294,10 @@ export function Screen13OnboardingScreen() {
                         rule: { required: true, valueType: 'email' },
                       },
                       { id: 'w:1:2938', value: formState['w:1:2938'], rule: { required: true } },
-                      { id: 'w:1:3505', value: formState['w:1:3505'], rule: { required: true } },
                     ]);
                     setFormErrors((e) => ({ ...e, ...errs }));
                     if (Object.keys(errs).length > 0) {
-                      focusFirstError(['w:1:2933', 'w:1:2938', 'w:1:3505'], errs);
+                      focusFirstError(['w:1:2933', 'w:1:2938'], errs);
                       return;
                     }
                     chainHops.current = 0;
@@ -604,11 +603,10 @@ export function Screen13OnboardingScreen() {
                         rule: { required: true, valueType: 'email' },
                       },
                       { id: 'w:1:3505', value: formState['w:1:3505'], rule: { required: true } },
-                      { id: 'w:1:2938', value: formState['w:1:2938'], rule: { required: true } },
                     ]);
                     setFormErrors((e) => ({ ...e, ...errs }));
                     if (Object.keys(errs).length > 0) {
-                      focusFirstError(['w:1:3500', 'w:1:3505', 'w:1:2938'], errs);
+                      focusFirstError(['w:1:3500', 'w:1:3505'], errs);
                       return;
                     }
                     chainHops.current = 0;
