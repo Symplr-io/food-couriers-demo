@@ -6,13 +6,12 @@ an Expo (SDK 58) React Native app.
 
 ## Try it on your Android phone
 
-![Scan with your Android phone](docs/qr.svg)
-
-Scan the code, or open <https://symplr-io.github.io/food-couriers-demo/> on
-the phone:
-
 1. Install [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent).
-2. Open the demo: `exp://demo-food-couriers.symplr.io`.
+2. Scan this code with the phone's camera or with Expo Go's "Scan QR code":
+
+   ![Scan with your Android phone](docs/qr.svg)
+
+   or, in Expo Go, Enter URL manually: `exp://demo-food-couriers.symplr.io`.
 3. Sign in as `demo@symplr.io` with the password `Demo-oGOPNuE_gFVt`. The demo
    resets every 30 minutes.
 
