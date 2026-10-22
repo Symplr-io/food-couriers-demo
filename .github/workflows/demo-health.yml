@@ -1,0 +1,37 @@
+name: Demo health
+
+# The QR in the README stays up for months, so a dead demo must not go unnoticed:
+# every 15 minutes, check that the demo host serves Expo Go its manifest and that
+# the printed account still signs in. A failed run emails the workflow's owner,
+# and posts to Slack when the SLACK_WEBHOOK_URL secret is set.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      # dev serves the demo first; switch to demo-food-couriers.symplr.io once prod does
+      DEMO_HOST: demo-food-couriers.101studio.co
+      SUPABASE_URL: https://wjvpjyvyavyapvrrmvjq.supabase.co
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqdnBqeXZ5YXZ5YXB2cnJtdmpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2Mzc3ODMsImV4cCI6MjEwODIxMzc4M30.AMsthWzDahaByNPmOMYLB8SJtn0o649cCkRtrFr3yLs
+      DEMO_EMAIL: demo@symplr.io
+      DEMO_PASSWORD: Demo-oGOPNuE_gFVt
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - name: QR
+        # x-demo-health-check keeps this probe out of device-service's Slack notices
+        run: |
+          curl -fsS --max-time 30 -H 'expo-platform: android' -H 'Accept: application/expo+json' -H 'x-demo-health-check: 1' "https://$DEMO_HOST/" | jq -e '.launchAsset.url'
+      - name: Login
+        run: |
+          curl -fsS --max-time 30 -X POST "$SUPABASE_URL/auth/v1/token?grant_type=password" -H "apikey: $SUPABASE_ANON_KEY" -H 'content-type: application/json' -d "{\"email\":\"$DEMO_EMAIL\",\"password\":\"$DEMO_PASSWORD\"}" | jq -e '.access_token' > /dev/null
+      - name: Slack
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          curl -fsS --max-time 30 -X POST "$SLACK_WEBHOOK_URL" -H 'content-type: application/json' -d "{\"text\":\"Food Couriers demo is down: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
