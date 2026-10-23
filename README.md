@@ -42,10 +42,13 @@ The demo data resets every 30 minutes. Expo Go on iPhone cannot open it yet.
 
 ## Made with Symplr.io
 
-```mermaid
-flowchart LR
-  A["Figma design"] --> B["Symplr.io"] --> C["Expo app<br/>(this repository)"]
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/Figma-design-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma design">
+  &nbsp;→&nbsp;
+  <img src="https://img.shields.io/badge/Symplr.io-generates-483DD9?style=for-the-badge" alt="Symplr.io generates">
+  &nbsp;→&nbsp;
+  <img src="https://img.shields.io/badge/Expo-app_in_this_repo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo app in this repository">
+</p>
 
 Symplr.io turned the Figma design into the app in [`apps/food-couriers`](apps/food-couriers):
 
