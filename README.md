@@ -31,7 +31,13 @@ Real Expo React Native source code, in strict TypeScript, running against a live
 
 <img src="docs/qr.svg" width="150" align="right" alt="QR code that opens the demo in Expo Go">
 
-1. Install [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent) on an Android phone.
+The demo runs in **Expo Go for SDK 58**, on Android.
+
+1. Install Expo Go:
+   - from [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent), or
+   - if the Play version has moved past SDK 58, install
+     [Expo Go 58.0.5 (APK)](https://github.com/expo/expo-go-releases/releases/download/Expo-Go-58.0.5/Expo-Go-58.0.5.apk)
+     and allow installs from your browser when Android asks.
 2. Scan the QR code, or open `exp://demo-food-couriers.symplr.io` in Expo Go.
 3. Sign in as `demo@symplr.io` with the password `Demo-oGOPNuE_gFVt`.
 
@@ -48,6 +54,14 @@ The demo data resets every 30 minutes. Expo Go on iPhone cannot open it yet.
   <img src="https://img.shields.io/badge/Symplr.io-generates-483DD9?style=for-the-badge" alt="Symplr.io generates">
   &nbsp;→&nbsp;
   <img src="https://img.shields.io/badge/Expo-app_in_this_repo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo app in this repository">
+</p>
+
+<p align="center">
+  <a href="https://app.storylane.io/share/pp2lab8xyb2z">
+    <img src="docs/import-demo.jpg" width="720" alt="Watch the Figma design being imported into Symplr.io">
+  </a>
+  <br>
+  <sub>Interactive walkthrough on Storylane: importing the Figma design into Symplr.io.</sub>
 </p>
 
 Symplr.io turned the Figma design into the app in [`apps/food-couriers`](apps/food-couriers):
