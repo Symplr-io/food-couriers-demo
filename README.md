@@ -18,7 +18,6 @@ Real Expo React Native source code, in strict TypeScript, running against a live
 [![Quality gate](https://sonarcloud.io/api/project_badges/measure?project=Symplr-io_food-couriers-demo&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Symplr-io_food-couriers-demo)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Symplr-io_food-couriers-demo&metric=coverage)](https://sonarcloud.io/component_measures?id=Symplr-io_food-couriers-demo&metric=coverage)
 [![Quality](https://github.com/Symplr-io/food-couriers-demo/actions/workflows/quality.yml/badge.svg)](https://github.com/Symplr-io/food-couriers-demo/actions/workflows/quality.yml)
-[![Demo health](https://github.com/Symplr-io/food-couriers-demo/actions/workflows/demo-health.yml/badge.svg)](https://github.com/Symplr-io/food-couriers-demo/actions/workflows/demo-health.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 <img src="docs/screenshots/onboarding.png" width="130" alt="Onboarding">
