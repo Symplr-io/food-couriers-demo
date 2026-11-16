@@ -2,7 +2,7 @@ name: Quality
 
 # Every push to main: typecheck, lint, unit tests with coverage, secret scan,
 # dependency audit, then a SonarQube Cloud analysis whose results the README's
-# badges show. The analysis is skipped until the SONAR_TOKEN secret exists.
+# badges show. The analysis is skipped while the SONAR_TOKEN secret is unset or empty.
 on:
   push:
     branches: [main]

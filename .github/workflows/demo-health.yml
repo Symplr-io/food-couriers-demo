@@ -2,7 +2,7 @@ name: Demo health
 
 # The QR in the README stays up for months, so a dead demo must not go unnoticed:
 # every 15 minutes, check that the demo host serves Expo Go its manifest and that
-# the printed account still signs in. A failed run emails the workflow's owner,
+# the printed account still signs in. A failed run emails whoever last changed the cron line,
 # and posts to Slack when the SLACK_WEBHOOK_URL secret is set.
 on:
   schedule:

@@ -132,7 +132,7 @@ Every push to `main` runs these checks:
 
 | Type check | Lint | Unit tests | Coverage | SonarQube Cloud |
 | :---: | :---: | :---: | :---: | :---: |
-| 0 errors | 0 errors | 535 passing | 76% | Quality gate passed, A ratings |
+| 0 errors | 0 errors | 535 passing | 77% | Quality gate passed, A ratings |
 
 ## Credits
 
