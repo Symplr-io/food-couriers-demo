@@ -84,7 +84,7 @@ Symplr.io turned the Figma design into the app in [`apps/food-couriers`](apps/fo
 - **A typed data layer:** TanStack Query hooks, Zod-checked responses, and
   Supabase Auth and PostgREST behind them.
 - **Design tokens** taken from Figma, with NativeWind for code you add.
-- **Quality built in:** 533 unit tests, ESLint, strict TypeScript, and the
+- **Quality built in:** 535 unit tests, ESLint, strict TypeScript, and the
   CI and SonarQube Cloud setup.
 
 A few small fixes were made by hand after generation. Each one is its own
@@ -132,7 +132,7 @@ Every push to `main` runs these checks:
 
 | Type check | Lint | Unit tests | Coverage | SonarQube Cloud |
 | :---: | :---: | :---: | :---: | :---: |
-| 0 errors | 0 errors | 533 passing | 76% | Quality gate passed, A ratings |
+| 0 errors | 0 errors | 535 passing | 76% | Quality gate passed, A ratings |
 
 ## Credits
 
